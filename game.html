@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>      
+        <link href='https://fonts.googleapis.com/css?family=Yeseva One' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Timmana' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Artifika' rel='stylesheet'>
+        <style>
+          body {
+  background-image: url("https://i.pinimg.com/originals/ab/74/69/ab7469c3de5691e7aba0c1a2e99cbda9.jpg");
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  background-attachment: fixed;
+          }
+
+            input{
+                height:60px;
+                width:70px;
+                background-color: rgb(244, 248, 244);
+                border:none;
+                margin:-2px;
+                font-size: 30px;
+                font-weight: bold;
+            }
+    .overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:rgba(227, 248, 248, 0.8);
+    overflow-x: hidden;
+    transition: 0.3s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 35%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .overlay h1 {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: black;
+    display: block;
+    transition: 0.2s;
+    font-family: 'Vollkorn';
+  }
+  
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 40px;
+    right: 65px;
+    font-size: 60px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
+
+        </style>
+    </head>
+    <body style="margin-top:1%;"><center>
+        <h2 style="text-align: center;font-family:'Artifika';font-weight: 900;color: turquoise; ">TIC TAC TOE </h2>
+        
+        <div class="container"style="margin-top:10%;" >
+        <div class="row">
+            <div class="col-sm-4">
+                <h1 style="font-family: 'Timmana'; color:rgba(252, 1, 22, 0.945);">How to play a game</h1>
+                <p style="font-family: 'Yeseva One';font-size: 18px;margin-top:10px;color: rgb(3, 3, 3);">The object of Tic Tac Toe is to get three in a row.
+                 You play on a three by three game board. The first player is known as X and the second is O.
+                  Players alternate placing Xs and Os on the game board until either oppent has three in a row or all nine squares are filled.
+                   X always goes first, and in the event that no one has three in a row, the stalemate is called a cat game.</p>
+            </div>
+            <div class="col-sm-1" style="margin-top:10%;"></div>
+            <div class="col-sm-3">
+              <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="text-decoration: none;">&times;</a>
+                <div class="overlay-content">
+                  <h1 id="h1">Winner is fdbsd</h1>
+                </div>
+              </div>
+              
+                <input type="button"  id="t1" onclick="ti1(); "  value="&#9827;"style="border-bottom: 5px solid black;" >
+              <input type="button"  id="t2"  onclick="ti2(); " value="&#9827;"style="border-bottom: 5px solid black;border-left:3px solid black;">
+              <input type="button"  id="t3"  onclick="ti3(); " value="&#9827;"style="border-bottom: 5px solid black;border-left:3px solid black;"><br>
+              <input type="button" id="t4"  onclick="ti4(); " value="&#9827;"style="border-bottom: 5px solid black;">
+              <input type="button" id="t5"  onclick="ti5(); " value="&#9827;"style="border-bottom: 5px solid black; border-left:3px solid black;">
+              <input type="button" id="t6"  onclick="ti6(); " value="&#9827;"style="border-bottom: 5px solid black;border-left:3px solid black;"><br>
+              <input type="button" id="t7" onclick="ti7(); "  value="&#9827;">
+              <input type="button"  id="t8"  onclick="ti8(); " value="&#9827;"style="border-left:3px solid black;">
+              <input type="button"  id="t9" onclick="ti9(); "  value="&#9827;"style="border-left:3px solid black;"></div>
+              <div class="col-sm-1" style="margin-top:20px;">
+                  <button class="btn  btn-sm btn-outline-danger" type="button" onclick="restart();" style="font-weight: bold;">RESTART</button>
+              </div>
+        
+        </div>
+        
+        </div></center>
+        <script>
+   var p1=prompt("Please Enter player1 Name","player1");
+var p2=prompt("Please Enter player2 Name","player2");
+if(p1==""||p1==null){
+    p1="Player1";
+}
+if(p2==""||p2==null){
+    p2="Player2";
+}
+alert("Welcome "+p1+" And "+p2);
+var t1=0,t2=0,t3=0,t4=0,t5=0,t6=0,t7=0,t8=0,t9=0,statu=0,a,b,c,d,e,f,g,h,i,j=0;
+function ti1(){
+    if(t1==0){t1=1;j=j+1;
+    if(statu==0){statu=1;a="X";
+    document.getElementById("t1").value="X";
+    document.getElementById("t1").style.color="white";
+    document.getElementById("t1").style.backgroundColor="lightskyblue";}
+    else{
+        statu=0;a="O";
+        document.getElementById("t1").value="O";
+        document.getElementById("t1").style.color="lightskyblue";
+        document.getElementById("t1").style.backgroundColor="white";
+    }}result();
+}
+function ti2(){
+    if(t2==0){t2=1;j=j+1;
+    if(statu==0){statu=1;b="X";
+    document.getElementById("t2").value="X";
+    document.getElementById("t2").style.color="white";
+    document.getElementById("t2").style.backgroundColor="lightskyblue";}
+    else{
+        statu=0;b="O";
+        document.getElementById("t2").value="O";
+        document.getElementById("t2").style.color="lightskyblue";
+        document.getElementById("t2").style.backgroundColor="white";
+    }}result();}
+    
+    function ti3(){
+        if(t3==0){t3=1;j=j+1;
+        if(statu==0){statu=4;c="X";
+        document.getElementById("t3").value="X";
+        document.getElementById("t3").style.color="white";
+        document.getElementById("t3").style.backgroundColor="lightskyblue";}
+        else{
+            statu=0;c="O";
+            document.getElementById("t3").value="O";
+            document.getElementById("t3").style.color="lightskyblue";
+            document.getElementById("t3").style.backgroundColor="white";
+        }}result();
+    }
+    function ti4(){
+        if(t4==0){t4=1;j=j+1;
+        if(statu==0){statu=4;d="X"
+        document.getElementById("t4").value="X";
+        document.getElementById("t4").style.color="white";
+        document.getElementById("t4").style.backgroundColor="lightskyblue";}
+        else{
+            statu=0;d="O";
+            document.getElementById("t4").value="O";
+            document.getElementById("t4").style.color="lightskyblue";
+            document.getElementById("t4").style.backgroundColor="white";
+        }}result();
+    }
+    function ti5(){
+        if(t5==0){t5=1;j=j+1;
+        if(statu==0){statu=4;e="X";
+        document.getElementById("t5").value="X";
+        document.getElementById("t5").style.color="white";
+        document.getElementById("t5").style.backgroundColor="lightskyblue";}
+        else{
+            statu=0;e="O";
+            document.getElementById("t5").value="O";
+            document.getElementById("t5").style.color="lightskyblue";
+            document.getElementById("t5").style.backgroundColor="white";
+        }}result();
+    }
+    function ti6(){
+        if(t6==0){t6=1;j=j+1;
+        if(statu==0){statu=1;f="X";
+        document.getElementById("t6").value="X";
+        document.getElementById("t6").style.color="white";
+        document.getElementById("t6").style.backgroundColor="lightskyblue";}
+        else{
+            statu=0;f="O";
+            document.getElementById("t6").value="O";
+            document.getElementById("t6").style.color="lightskyblue";
+            document.getElementById("t6").style.backgroundColor="white";
+        }}result();
+    }
+    function ti7(){
+        if(t7==0){t7=1;j=j+1;
+        if(statu==0){statu=1;g="X";
+        document.getElementById("t7").value="X";
+        document.getElementById("t7").style.color="white";
+        document.getElementById("t7").style.backgroundColor="lightskyblue";}
+        else{
+            statu=0;g="O";
+            document.getElementById("t7").value="O";
+            document.getElementById("t7").style.color="lightskyblue";
+            document.getElementById("t7").style.backgroundColor="white";
+        }}result();}
+        
+        function ti8(){
+            if(t8==0){t8=1;j=j+1;
+            if(statu==0){statu=1;h="X";
+            document.getElementById("t8").value="X";
+            document.getElementById("t8").style.color="white";
+            document.getElementById("t8").style.backgroundColor="lightskyblue";}
+            else{
+                statu=0;
+                document.getElementById("t8").value="O";h="O";
+                document.getElementById("t8").style.color="lightskyblue";
+                document.getElementById("t8").style.backgroundColor="white";
+            }}result();
+        }
+        function ti9(){
+            if(t9==0){t9=1;j=j+1;
+            if(statu==0){statu=1;
+            document.getElementById("t9").value="X";i="X";
+            document.getElementById("t9").style.color="white";
+            document.getElementById("t9").style.backgroundColor="lightskyblue";}
+            else{
+                statu=0;
+                document.getElementById("t9").value="O";i="O";
+                document.getElementById("t9").style.color="lightskyblue";
+                document.getElementById("t9").style.backgroundColor="white";
+            }}result();
+        }
+function result(){
+    console.log(a,b,c,d,e,f,g,h,i,j);
+    console.log(typeof(a),typeof(b),typeof(c));
+    if(j>9){
+        console.log(j);
+        document.getElementById("h1").innerHTML="Draw game ";
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1;
+        return;
+        
+    }
+    if(t1==1&&t2==t1&&t1==t3&&t3==t4&&t1==t6&&t9==t8&&t9==1&&t7==1){
+        console.log(j,t1,t2,t3,t4,t5,t6,t7,t8,t9);
+        document.getElementById("h1").innerHTML="Game over ";
+        document.getElementById("myNav").style.height = "100%";
+    }
+    if(a==b&&a==c&&c=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return; 
+    }
+    if(a==b&&a==c&&c=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(d==e&&e==f&&f=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+      
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(d==e&&e==f&&f=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(g==i&&h==i&&i=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(g==i&&h==i&&i=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+      document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(a==d&&d==g&&g=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(a==d&&d==g&&g=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+      document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(b==e&&e==h&&h=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(b==e&&e==h&&h=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(i==c&&c==f&&f=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(i==c&&c==f&&f=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(c==e&&e==g&&g=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+         t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(c==e&&e==g&&g=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(a==i&&i==e&&e=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(a==i&&i==e&&e=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+}
+function restart(){
+    document.getElementById("t9").value='\u2663';
+    document.getElementById("t9").style.color="black";
+    document.getElementById("t9").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t8").value='\u2663';
+    document.getElementById("t8").style.color="black";
+    document.getElementById("t8").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t7").value='\u2663';
+    document.getElementById("t7").style.color="black";
+    document.getElementById("t7").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t6").value='\u2663';
+    document.getElementById("t6").style.color="black";
+    document.getElementById("t6").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t5").value='\u2663';
+    document.getElementById("t5").style.color="black";
+    document.getElementById("t5").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t4").value='\u2663';
+    document.getElementById("t4").style.color="black";
+    document.getElementById("t4").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t3").value='\u2663';
+    document.getElementById("t3").style.color="black";
+    document.getElementById("t3").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t2").value='\u2663';
+    document.getElementById("t2").style.color="black";
+    document.getElementById("t2").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t1").value='\u2663';
+    document.getElementById("t1").style.color="black";
+    document.getElementById("t1").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=0;j=0;
+    a="1";
+    b="2";
+    c="3";
+    d="4";
+    f="6";
+    e="5";
+    g="7";
+    h="8";
+    i="9";
+    statu=0;
+    console.log(a,b,c,d,e,f,g,h,i,j);
+    console.log(typeof(a),typeof(b),typeof(c));
+}
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+  }
+        </script>
+    </body>
+    
+</html>
