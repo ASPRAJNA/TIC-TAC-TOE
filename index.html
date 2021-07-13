@@ -232,6 +232,7 @@
                 }
             } result();
         }
+<<<<<<< HEAD
         function ti6() {
             if (t6 == 0) {
                 t6 = 1; j = j + 1;
@@ -448,3 +449,152 @@
 </body>
 
 </html>
+=======
+function result(){
+    console.log(a,b,c,d,e,f,g,h,i,j);
+    console.log(typeof(a),typeof(b),typeof(c));
+    if(j>9){
+        console.log(j);
+        document.getElementById("h1").innerHTML="Draw game ";
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1;
+        return;
+        
+    }
+    if(t1==1&&t2==t1&&t1==t3&&t3==t4&&t1==t6&&t9==t8&&t9==1&&t7==1){
+        console.log(j,t1,t2,t3,t4,t5,t6,t7,t8,t9);
+        document.getElementById("h1").innerHTML="Game over ";
+        document.getElementById("myNav").style.height = "100%";
+    }
+    if(a==b&&a==c&&c=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return; 
+    }
+    if(a==b&&a==c&&c=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(d==e&&e==f&&f=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+      
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(d==e&&e==f&&f=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(g==i&&h==i&&i=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(g==i&&h==i&&i=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+      document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(a==d&&d==g&&g=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(a==d&&d==g&&g=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+      document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(b==e&&e==h&&h=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(b==e&&e==h&&h=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(i==c&&c==f&&f=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(i==c&&c==f&&f=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(c==e&&e==g&&g=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+         t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(c==e&&e==g&&g=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(a==i&&i==e&&e=="X"){
+        document.getElementById("h1").innerHTML="Winner is "+p1;
+        document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+    if(a==i&&i==e&&e=="O"){
+       document.getElementById("h1").innerHTML="Winner is "+p2;
+       document.getElementById("myNav").style.height = "100%";
+        t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=1; return;
+    }
+}
+function restart(){
+    document.getElementById("t9").value='\u2663';
+    document.getElementById("t9").style.color="black";
+    document.getElementById("t9").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t8").value='\u2663';
+    document.getElementById("t8").style.color="black";
+    document.getElementById("t8").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t7").value='\u2663';
+    document.getElementById("t7").style.color="black";
+    document.getElementById("t7").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t6").value='\u2663';
+    document.getElementById("t6").style.color="black";
+    document.getElementById("t6").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t5").value='\u2663';
+    document.getElementById("t5").style.color="black";
+    document.getElementById("t5").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t4").value='\u2663';
+    document.getElementById("t4").style.color="black";
+    document.getElementById("t4").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t3").value='\u2663';
+    document.getElementById("t3").style.color="black";
+    document.getElementById("t3").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t2").value='\u2663';
+    document.getElementById("t2").style.color="black";
+    document.getElementById("t2").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    document.getElementById("t1").value='\u2663';
+    document.getElementById("t1").style.color="black";
+    document.getElementById("t1").style.backgroundColor='rgb(' + 244 + ',' + 248 + ',' + 244 + ')';
+    t1=t2=t3=t4=t5=t6=t7=t8=t9=t10=0;j=0;
+    a="1";
+    b="2";
+    c="3";
+    d="4";
+    f="6";
+    e="5";
+    g="7";
+    h="8";
+    i="9";
+    statu=0;
+    console.log(a,b,c,d,e,f,g,h,i,j);
+    console.log(typeof(a),typeof(b),typeof(c));
+}
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+  }
+        </script>
+    </body>
+    
+</html>
+>>>>>>> addfdb67d773f55d98bc16679ddcea1b5f963784
